@@ -26,8 +26,10 @@ app.use((req, res, next) => {
   console.log("1. middleware")
   next()
 })
+
 app.use(express.urlencoded({extended: false}))
 app.use(methodOverride("_method"))
+app.use(express.static('public'));
 
 // ===== Routes =====
 app.use("/fruits", fruitsController)
